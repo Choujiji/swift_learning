@@ -57,7 +57,8 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiChoices = ["🎃", "👻", "😈", "🤖", "💋", "😸", "👍", "😬"]
+//    var emojiChoices = ["🎃", "👻", "😈", "🤖", "💋", "😸", "👍", "😬"]
+    var emojiChoices = "🎃👻😈🤖💋😸👍😬"
     
     var emoji = [Card: String]() // Dictionary
     
@@ -65,10 +66,10 @@ class ViewController: UIViewController {
     func emoji(for card: Card) -> String {
         if emoji[card] == nil, emojiChoices.count > 0 {
             // 随机添加进一个emoji
-//            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
-            let randomIndex = (emojiChoices.count).getRandomIndex()
+//            let randomIndex = (emojiChoices.count).getRandomIndex()
+            let randomIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.getRandomIndex())
             // 添加进字典去的数据不可再次加入，所以直接在数组中移除该emoji
-            emoji[card] = emojiChoices.remove(at: randomIndex)
+            emoji[card] = String(emojiChoices.remove(at: randomIndex))
         }
         
 //        if emoji[card.identifier] != nil {
