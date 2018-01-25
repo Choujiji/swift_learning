@@ -10,7 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = Concentration(numberPairsOfCards: (cardButtons.count + 1) / 2)  // lazy - 当访问时，才初始化
+    lazy var game = Concentration(numberPairsOfCards: numberOfPairsOfCards)  // lazy - 当访问时，才初始化
+
+    // 简单的计算属性（这里是只读）
+    var numberOfPairsOfCards: Int {
+        return (cardButtons.count + 1) / 2
+    }
     
     var flipCount = 0 {
         didSet {
@@ -60,7 +65,8 @@ class ViewController: UIViewController {
     func emoji(for card: Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             // 随机添加进一个emoji
-            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+//            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            let randomIndex = (emojiChoices.count).getRandomIndex()
             // 添加进字典去的数据不可再次加入，所以直接在数组中移除该emoji
             emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
         }
@@ -71,6 +77,13 @@ class ViewController: UIViewController {
 //        return "?"
         // optional ?? xx（有值则解绑返回，否则返回预设值）
         return emoji[card.identifier] ?? "?"
+    }
+}
+
+
+extension Int {
+    func getRandomIndex() -> Int {
+        return Int(arc4random_uniform(UInt32(self)))
     }
 }
 
