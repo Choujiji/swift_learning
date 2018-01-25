@@ -26,22 +26,28 @@ class Concentration {
     // 计算属性
     var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
-            var foundIndex: Int?
-            for index in cards.indices {
-                // 面朝上的card进行查看（对于翻过来的才有效）
-                if cards[index].isFaceUp {
-                    if foundIndex == nil {
-                        // 没有朝向正面的，记录下来
-                        foundIndex = index
-                        print("found===")
-                    } else {
-                        // 已有，置为nil
-                        foundIndex = nil
-                        print("unfound!!!!!")
-                    }
-                }
+            let isFacedUpArray = cards.indices.filter {
+                cards[$0].isFaceUp
             }
-            return foundIndex
+//            return isFacedUpArray.count == 1 ? isFacedUpArray.first : nil
+            return isFacedUpArray.oneAndOnly
+            
+//            var foundIndex: Int?
+//            for index in cards.indices {
+//                // 面朝上的card进行查看（对于翻过来的才有效）
+//                if cards[index].isFaceUp {
+//                    if foundIndex == nil {
+//                        // 没有朝向正面的，记录下来
+//                        foundIndex = index
+//                        print("found===")
+//                    } else {
+//                        // 已有，置为nil
+//                        foundIndex = nil
+//                        print("unfound!!!!!")
+//                    }
+//                }
+//            }
+//            return foundIndex
         }
         set {   // newValue
             // 只设置newValue的index为翻过来，其余为false
@@ -97,4 +103,12 @@ class Concentration {
     }
     
     
+}
+
+
+extension Collection {
+    /** 有且只有一个 */
+    var oneAndOnly: Element? {
+        return count == 1 ? first : nil
+    }
 }
