@@ -19,11 +19,17 @@ class ViewController: UIViewController {
     
     var flipCount = 0 {
         didSet {
-            flipCountLabel.text = "Flips: \(flipCount)"
+//            flipCountLabel.text = "Flips: \(flipCount)"
+            // NSAttributeString
+            updateFlipCountLabel()
         }
     }
 
-    @IBOutlet weak var flipCountLabel: UILabel!
+    @IBOutlet weak var flipCountLabel: UILabel! {
+        didSet {
+            updateFlipCountLabel()
+        }
+    }
     
     @IBOutlet var cardButtons: [UIButton]!
     
@@ -36,6 +42,16 @@ class ViewController: UIViewController {
         } else {
             print("not in cardButtons...")
         }
+    }
+    
+    /** 更新文字显示 */
+    func updateFlipCountLabel() {
+        let attributes: [NSAttributedStringKey: Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: UIColor.orange
+        ]
+        let str = NSAttributedString(string: "Flip: \(flipCount)", attributes: attributes)
+        flipCountLabel.attributedText = str
     }
     
     func updateViewFromModel() {
