@@ -56,13 +56,13 @@ class Concentration {
             // 没有匹配时，
             
             print("select index = \(index)")
-            print("indexOfOneAndOnlyFaceUpCard = \(indexOfOneAndOnlyFaceUpCard)")
+            print("indexOfOneAndOnlyFaceUpCard = \(String(describing: indexOfOneAndOnlyFaceUpCard))")
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 print("进入匹配~~~~~~")
                 // 存在一个面朝上的card，并且这个card的index不是刚刚选择的index
                 // （翻过来的是第二个card）
                 // 所以，有两个card面朝上了，可以进行匹配了
-                if cards[matchIndex].identifier == cards[index].identifier {
+                if cards[matchIndex] == cards[index] {
                     // 匹配成功
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true

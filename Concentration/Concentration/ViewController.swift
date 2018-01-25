@@ -59,16 +59,16 @@ class ViewController: UIViewController {
     
     var emojiChoices = ["🎃", "👻", "😈", "🤖", "💋", "😸", "👍", "😬"]
     
-    var emoji = [Int: String]() // Dictionary
+    var emoji = [Card: String]() // Dictionary
     
     /** 根据card实例返回emoji */
     func emoji(for card: Card) -> String {
-        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
+        if emoji[card] == nil, emojiChoices.count > 0 {
             // 随机添加进一个emoji
 //            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
             let randomIndex = (emojiChoices.count).getRandomIndex()
             // 添加进字典去的数据不可再次加入，所以直接在数组中移除该emoji
-            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+            emoji[card] = emojiChoices.remove(at: randomIndex)
         }
         
 //        if emoji[card.identifier] != nil {
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
 //        }
 //        return "?"
         // optional ?? xx（有值则解绑返回，否则返回预设值）
-        return emoji[card.identifier] ?? "?"
+        return emoji[card] ?? "?"
     }
 }
 
