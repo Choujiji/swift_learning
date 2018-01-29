@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Concentration
+//  PlayingCard
 //
-//  Created by mac on 2017/11/27.
-//  Copyright © 2017年 jiji. All rights reserved.
+//  Created by mac on 2018/1/29.
+//  Copyright © 2018年 jiji. All rights reserved.
 //
 
 import UIKit
