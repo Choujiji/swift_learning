@@ -14,6 +14,7 @@
 		0423A65B201E97150040443A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0423A659201E97150040443A /* LaunchScreen.storyboard */; };
 		0423A664201E97560040443A /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423A663201E97560040443A /* PlayingCard.swift */; };
 		0423A666201EB9B40040443A /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423A665201EB9B40040443A /* PlayingCardDeck.swift */; };
+		049552C32024122500F7781E /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049552C22024122500F7781E /* PlayingCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0423A65C201E97150040443A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0423A663201E97560040443A /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		0423A665201EB9B40040443A /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
+		049552C22024122500F7781E /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				0423A663201E97560040443A /* PlayingCard.swift */,
 				0423A652201E97150040443A /* ViewController.swift */,
+				049552C22024122500F7781E /* PlayingCardView.swift */,
 				0423A654201E97150040443A /* Main.storyboard */,
 				0423A657201E97150040443A /* Assets.xcassets */,
 				0423A662201E973C0040443A /* Supporting Files */,
@@ -153,6 +156,7 @@
 				0423A653201E97150040443A /* ViewController.swift in Sources */,
 				0423A666201EB9B40040443A /* PlayingCardDeck.swift in Sources */,
 				0423A664201E97560040443A /* PlayingCard.swift in Sources */,
+				049552C32024122500F7781E /* PlayingCardView.swift in Sources */,
 				0423A651201E97150040443A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
