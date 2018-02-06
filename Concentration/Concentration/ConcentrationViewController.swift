@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConcentrationViewController: UIViewController {
     
     lazy var game = Concentration(numberPairsOfCards: numberOfPairsOfCards)  // lazy - 当访问时，才初始化
 
@@ -46,9 +46,10 @@ class ViewController: UIViewController {
     
     /** 更新文字显示 */
     func updateFlipCountLabel() {
+        
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth: 5.0,
-            .strokeColor: UIColor.orange
+            .strokeColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         ]
         let str = NSAttributedString(string: "Flip: \(flipCount)", attributes: attributes)
         flipCountLabel.attributedText = str
@@ -64,12 +65,20 @@ class ViewController: UIViewController {
             if card.isFaceUp == true {
                 // 按钮也需要翻过来
                 button.setTitle(emoji(for: card), for: .normal)
-                button.backgroundColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+                button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             } else {
                 // 按钮也需要扣上（若已经匹配上，则隐藏该按钮）
                 button.setTitle("", for: .normal)
-                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.99483639, green: 0.5957265496, blue: 0.1807449758, alpha: 0) : #colorLiteral(red: 0.99483639, green: 0.5957265496, blue: 0.1807449758, alpha: 1)
+                button.backgroundColor = card.isMatched ? #colorLiteral(red: 0.99483639, green: 0.5957265496, blue: 0.1807449758, alpha: 0) : #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
             }
+        }
+    }
+    
+    var theme: String? {
+        didSet {
+            // 重置相关值
+            emojiChoices = theme ?? ""
+            emoji = [:]
         }
     }
     
