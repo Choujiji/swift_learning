@@ -17,6 +17,11 @@ class ConcentrasionThemeChooseViewController: UIViewController {
         "Animals": "🐶🐱🐹🦊🐻🐼🐵🐷",
         "Faces": "😀😅😍😜😚😎🤡😱"
     ]
+    
+    @IBAction func segueToAction(_ sender: Any) {
+        performSegue(withIdentifier: "Choose Theme", sender: sender)
+    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Choose Theme" {

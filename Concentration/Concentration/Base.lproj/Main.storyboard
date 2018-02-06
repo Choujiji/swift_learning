@@ -33,7 +33,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <state key="normal" title="Sports"/>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="CY0-dy-nci"/>
+                                                            <action selector="segueToAction:" destination="Ax0-2D-Mss" eventType="touchUpInside" id="3xP-CH-C7K"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ket-jL-CXV">
@@ -41,7 +41,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <state key="normal" title="Faces"/>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="em1-kk-3fD"/>
+                                                            <action selector="segueToAction:" destination="Ax0-2D-Mss" eventType="touchUpInside" id="Odm-T8-MGt"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEk-1F-LbR">
@@ -49,7 +49,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <state key="normal" title="Animals"/>
                                                         <connections>
-                                                            <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="wfM-w3-Fkn"/>
+                                                            <action selector="segueToAction:" destination="Ax0-2D-Mss" eventType="touchUpInside" id="q4f-MV-ps0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -67,6 +67,9 @@
                         <viewLayoutGuide key="safeArea" id="PqU-uA-9fc"/>
                     </view>
                     <navigationItem key="navigationItem" id="H2p-RL-KUe"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="Choose Theme" id="Jp0-fi-JE0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AE-ow-Isr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,6 +321,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FOJ-VC-enZ"/>
+        <segue reference="Jp0-fi-JE0"/>
     </inferredMetricsTieBreakers>
 </document>
