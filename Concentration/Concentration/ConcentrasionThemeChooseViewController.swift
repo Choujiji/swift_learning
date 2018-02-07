@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConcentrasionThemeChooseViewController: UIViewController {
+class ConcentrasionThemeChooseViewController: UIViewController, UISplitViewControllerDelegate {
 
 //     MARK: - Navigation
     
@@ -17,6 +17,28 @@ class ConcentrasionThemeChooseViewController: UIViewController {
         "Animals": "🐶🐱🐹🦊🐻🐼🐵🐷",
         "Faces": "😀😅😍😜😚😎🤡😱"
     ]
+    
+    override func awakeFromNib() {
+        splitViewController?.delegate = self
+    }
+    
+    func splitViewController(
+        _ splitViewController: UISplitViewController,
+        collapseSecondary secondaryViewController: UIViewController,
+        onto primaryViewController: UIViewController
+    ) -> Bool {
+        // 告知是否需要移除detailVC，直接显示masterVC
+        // 这个方法在iPad的竖屏或者iPhone Plus竖屏或者iPhone上
+        // 直接显示maxter视图
+        if let cvc = secondaryViewController as? ConcentrationViewController {
+            if cvc.theme == nil {
+                // 没有设置主题，显示master
+                return true
+            }
+        }
+        // 使用默认行为，不释放detail（显示detail）
+        return false
+    }
     
     /** 当前的splitVC的detailVC是否是ConcentrationVC */
     private var splitViewDetailConcentrationViewController: ConcentrationViewController? {

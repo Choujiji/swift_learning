@@ -255,7 +255,6 @@
         <!--Item 1-->
         <scene sceneID="juV-KC-1JQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DTX-fr-Nef" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ZSP-np-ROL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EcT-Fu-DZb">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
@@ -265,6 +264,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="zmm-Ks-eDv"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DTX-fr-Nef" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1365" y="2995"/>
         </scene>
