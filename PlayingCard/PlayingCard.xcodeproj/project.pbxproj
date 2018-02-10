@@ -15,6 +15,7 @@
 		0423A664201E97560040443A /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423A663201E97560040443A /* PlayingCard.swift */; };
 		0423A666201EB9B40040443A /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423A665201EB9B40040443A /* PlayingCardDeck.swift */; };
 		049552C32024122500F7781E /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049552C22024122500F7781E /* PlayingCardView.swift */; };
+		04BD58B8202ED6850047C29C /* CardBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD58B7202ED6850047C29C /* CardBehavior.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0423A663201E97560040443A /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		0423A665201EB9B40040443A /* PlayingCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
 		049552C22024122500F7781E /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
+		04BD58B7202ED6850047C29C /* CardBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardBehavior.swift; path = PlayingCard/CardBehavior.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 		0423A644201E97140040443A = {
 			isa = PBXGroup;
 			children = (
+				04BD58B7202ED6850047C29C /* CardBehavior.swift */,
 				0423A64F201E97140040443A /* PlayingCard */,
 				0423A64E201E97140040443A /* Products */,
 			);
@@ -158,6 +161,7 @@
 				0423A664201E97560040443A /* PlayingCard.swift in Sources */,
 				049552C32024122500F7781E /* PlayingCardView.swift in Sources */,
 				0423A651201E97150040443A /* AppDelegate.swift in Sources */,
+				04BD58B8202ED6850047C29C /* CardBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
