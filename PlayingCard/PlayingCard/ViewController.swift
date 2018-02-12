@@ -31,25 +31,8 @@ class ViewController: UIViewController {
     
     /** 动态动画对象 */
     private lazy var animator = UIDynamicAnimator(referenceView: view)
-    
-    /** 碰撞行为对象 */
-    lazy var collisionBehavior: UICollisionBehavior = {
-        let behavior = UICollisionBehavior()
-        // 设置参照视图的边框也可以进行碰撞（这里就是self.view）
-        behavior.translatesReferenceBoundsIntoBoundary = true
-        animator.addBehavior(behavior)
-        return behavior
-    }()
-    
-    /** 自定义仿真对象行为 */
-    lazy var itemBahavior: UIDynamicItemBehavior = {
-        let behavior = UIDynamicItemBehavior()
-        behavior.allowsRotation = false
-        behavior.elasticity = 1.0   // 弹力（1.0位正常，大于则碰撞后增加，小于会减少）
-        behavior.resistance = 0.0   // 阻力
-        animator.addBehavior(behavior)
-        return behavior
-    }()
+    /** 卡片仿真力 */
+    private lazy var cardBehavior = CardBehavior(in: animator)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,23 +59,7 @@ class ViewController: UIViewController {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(flipCard(_:)))
             cardView.addGestureRecognizer(tapGesture)
             // 添加仿真动画
-            // 碰撞力
-            collisionBehavior.addItem(cardView)
-            // 自定义对象力
-            itemBahavior.addItem(cardView)
-            // 推力
-            let pushBehavior = UIPushBehavior(
-                items: [cardView],
-                mode: .instantaneous
-            )
-            pushBehavior.angle = (2 * CGFloat.pi).arc4random_float
-            pushBehavior.magnitude = CGFloat(1.0) + CGFloat(2.0).arc4random_float
-            // 执行推力动画期间的行为
-            pushBehavior.action = { [unowned pushBehavior] in
-                // 移除此推力行为
-                pushBehavior.dynamicAnimator?.removeBehavior(pushBehavior)
-            }
-            animator.addBehavior(pushBehavior)
+            cardBehavior.addItem(cardView)
         }
     }
     
@@ -102,6 +69,9 @@ class ViewController: UIViewController {
         case .ended:
             if let chosenCardView = gesture.view as? PlayingCardView {
 //                chosenCardView.isFaceUp = !chosenCardView.isFaceUp
+                // 移除力（点击之后就移除所有的力）
+                cardBehavior.removeItem(chosenCardView)
+                
                 // 使用动画的方式翻牌
                 UIView.transition(
                     with: chosenCardView,
@@ -162,10 +132,22 @@ class ViewController: UIViewController {
                                     options: [.transitionFlipFromLeft],
                                     animations: {
                                         cardView.isFaceUp = false
+                                    },
+                                    completion: { finished in
+                                        // 由于点击后移除了相应的力，这里重新添加回来
+                                        //（再次洗牌）
+                                        self.cardBehavior.addItem(cardView)
                                     }
                                 )
                             }
                             
+                        } else {
+                            // 只点了一张牌的情况
+                            if !chosenCardView.isFaceUp {
+                                // 点的牌翻过去了（即 点开一张牌，再点击扣上时）
+                                // 把力加回来，重新洗牌
+                                self.cardBehavior.addItem(chosenCardView)
+                            }
                         }
                         
                     }
